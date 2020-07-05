@@ -1,0 +1,20 @@
+<%- include('header'); -%>
+
+<div class="content">
+  <form class="form" action="/" method="POST">
+    <h1>Welcome to <span>The Circle</span></h1>
+    <div class="form-control">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username">
+    </div>
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password">
+    </div>
+    <!-- Submit button?? -->
+    <button class="button" type="submit">Login</button>
+    <a href='/register' class="button" type="button">Register</a>
+  </form>
+</div>
+
+<%- include('footer'); -%>

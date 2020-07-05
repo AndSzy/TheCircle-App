@@ -1,0 +1,11 @@
+<!-- Register form errors -->
+
+<% if(typeof errors != 'undefined') { %>
+  <% errors.forEach((error) => { %>
+    <div class="register-alert">
+      <%= error.msg %>
+      <span class="register-alert-close" onclick="this.parentElement.style.display='none'">&times</span>
+    </div>
+
+  <% }) %>
+<% } %>
