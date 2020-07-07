@@ -54,6 +54,6 @@ app.use(passport.session());
 app.use('/', require('./routes/users'));
 app.use('/thecircle', require('./routes/index'));
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`Listening at port ${port}`));

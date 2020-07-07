@@ -1,5 +1,6 @@
 const localStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 // User to get access to mongodb
 const User = require('../models/User');
@@ -14,10 +15,16 @@ module.exports = function (passport) {
         if(!user) {
           return done(null, false, { message: 'Incorect username'});
         }
-        if (password !== user.password) {
-          return done(null, false, {message: 'Incorrect password.'});
-        }
-        return done(null, user);
+
+        bcrypt.compare(password, user.password, (err, res) => {
+          if (err) throw err;
+
+          if(res) {
+            return done(null, user);
+          } else {
+            return done(null, false, {message: 'Incorrect password.'});
+          }
+        })
       })
       .catch(err => console.log(err));
   }))
