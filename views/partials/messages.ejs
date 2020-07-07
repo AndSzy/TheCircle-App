@@ -9,3 +9,25 @@
 
   <% }) %>
 <% } %>
+
+
+<% if(success_msg != '') { %>
+  <div class="register-alert">
+    <%= success_msg %>
+    <span class="register-alert-close" onclick="this.parentElement.style.display='none'">&times</span>
+  </div>
+<% } %>
+
+<% if(error_msg != '') { %>
+  <div class="register-alert error-alert">
+    <%= error_msg %>
+    <span class="register-alert-close" onclick="this.parentElement.style.display='none'">&times</span>
+  </div>
+<% } %>
+
+<% if(error != '') { %>
+  <div class="register-alert error-alert">
+    <%= error %>
+    <span class="register-alert-close" onclick="this.parentElement.style.display='none'">&times</span>
+  </div>
+<% } %>

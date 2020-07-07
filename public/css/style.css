@@ -130,3 +130,7 @@ a {
   font-size: 1.5em;
   cursor: pointer;
 }
+
+.error-alert {
+  background: #f2dede;
+}

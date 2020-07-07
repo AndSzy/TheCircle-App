@@ -8,6 +8,7 @@ const User = require('../models/User');
 // Login page
 router.get('/', (req, res) => res.render('login'));
 
+
 // Register page
 router.get('/register', (req, res) => res.render('register'));
 
@@ -62,7 +63,10 @@ router.post('/register', (req, res) => {
           })
 
           newUser.save()
-            .then(user => res.redirect('/'))
+            .then(user => {
+              req.flash('success_msg', 'You are now registered and can log in');
+              res.redirect('/')
+            })
             .catch(err => console.log(err))
         }
       })
@@ -80,13 +84,17 @@ router.post('/register', (req, res) => {
 router.post('/', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/thecircle',
-    failureRedirect: '/'
-  })(req, res, next);
+    failureRedirect: '/',
+    badRequestMessage: 'Username or Password missing',
+    failureFlash: true
+  })
+  (req, res, next);
 });
 
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();
+  req.flash('success_msg', 'You are logged out');
   res.redirect('/');
 })
 

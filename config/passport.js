@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 // Configuration of local strategy
+//  passport is padded from app.js file
 
 module.exports = function (passport) {
   passport.use(new localStrategy( (username, password, done) => {

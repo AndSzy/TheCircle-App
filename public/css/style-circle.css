@@ -60,3 +60,7 @@ body {
 a {
   text-decoration: none;
 }
+
+.welcome-message {
+  z-index: 2;
+}
