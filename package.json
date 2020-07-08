@@ -1,9 +1,6 @@
 {
   "name": "the-circle-app",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.13.1"
-  },
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -11,6 +8,9 @@
   },
   "author": "AndSzy",
   "license": "ISC",
+  "engines": {
+    "node": "12.13.1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
